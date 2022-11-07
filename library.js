@@ -1,9 +1,8 @@
-export function createrOfElements(typeElemen,attr){
+export function createrOfElements(typeElemen,attr,childs){
     let elem = document.createElement(typeElemen);
-    if(attr.src && attr.alt){
-        elem.setAttribute('src',attr.src);
-        elem.setAttribute('alt',attr.alt);
-    }
+    let keysElements = Object.keys(attr);
+        keysElements.map(keys=>elem.setAttribute(keys,attr[keys]));
+        childs.map(child=>renderElement(elem,child));
     return elem;
 }
 
